@@ -1,24 +1,24 @@
 import sys
 
-def MergeSort(A, l, r):
-	if(l<r):		
-		mid=(l+r)//2
-		MergeSort(A,l,mid)
+def MergeSort(A, p, r):
+	if(p<r):		
+		mid=(p+r)//2
+		MergeSort(A,p,mid)
 		MergeSort(A,mid+1,r)
-		Merge(A,l,mid,r) 
+		Merge(A,p,mid,r) 
 
-def Merge(A, l, mid, r):
-	n = mid - l + 1 
+def Merge(A, p, mid, r):
+	n = mid - p + 1 
 	m = r - mid
 	L = [0] * n			
 	R = [0] * m
 	for i in range(0,n): 
- 		L[i] = A[l+i]
+ 		L[i] = A[p+i]
 	for j in range(0,m):
 		R[j]=A[mid+1+j]
 	i = 0
 	j = 0
-	k=l
+	k=p
 	while(i<n and j<m):
 		if (L[i] <= R[j]):
 			A[k] = L[i]
